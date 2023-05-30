@@ -2,12 +2,11 @@
 
 import rospy
 from turtlesim.msg import Pose
-from std_msgs.msg import Float32
 from geometry_msgs.msg import Twist
 import math
 
 g_turtle_pose = Pose()  # Variable globale pour stocker la pose de la tortue
-waypoint = {7, 7}  # Coordonnées du waypoint
+waypoint = (7, 7)  # Coordonnées du waypoint
 
 def pose_callback(msg):
     global g_turtle_pose
@@ -21,6 +20,7 @@ def calculate_desired_angle():
     return desired_angle
 
 def calculate_command(desired_angle, kp):
+    global g_turtle_pose
     error = math.atan2(math.tan(desired_angle - g_turtle_pose.theta), 1)
     command = kp * error
     return command
