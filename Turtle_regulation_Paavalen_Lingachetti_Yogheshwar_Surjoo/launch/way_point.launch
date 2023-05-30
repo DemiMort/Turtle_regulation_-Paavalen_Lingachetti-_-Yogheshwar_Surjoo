@@ -1,6 +1,6 @@
 <launch>
-    <node pkg="Turtle_regulation_Paavalen_Lingachetti_Yogheshwar_Surjoo" name="waypoint" type="set_way_point.py"/>
+    <node pkg="turtle_regulation_paavalen_lingachetti_yogheshwar_surjoo" name="waypoint" type="set_way_point.py">
         <remap from="pose" to="turtle1/pose"/>
         <remap from="cmd_vel" to="turtle1/cmd_vel"/>
-    
+    </node>
 </launch>

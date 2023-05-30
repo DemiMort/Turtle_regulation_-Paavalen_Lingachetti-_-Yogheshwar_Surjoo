@@ -4,10 +4,11 @@ import rospy
 from std_msgs.msg import Bool
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
+from turtle_regulation_paavalen_lingachetti_yogheshwar_surjoo.srv import waypoint as wp
 import math
 
 g_turtle_pose = Pose()  # Variable globale pour stocker la pose de la tortue
-waypoint = (7, 7)  # Coordonnées du waypoint
+waypoint = [7, 7]  # Coordonnées du waypoint
 
 def pose_callback(msg):
     global g_turtle_pose
@@ -50,8 +51,16 @@ def calculate_angular_command(error, kp_a):
     command = kp_a * error
     return command
 
+def set_waypoint(req):
+    global waypoint
+    waypoint = [req.x.data, req.y.data]
+    return Bool(True)
+
 if __name__ == "__main__":
+    
+   
     rospy.init_node("set_way_point_node")
+    rospy.Service('set_waypoint_service', wp, set_waypoint)
     rate = rospy.Rate(10)
 
     kp_l = rospy.get_param("~kp_l", 5.0)  # Récupère la valeur de Kp_l du paramètre privé
