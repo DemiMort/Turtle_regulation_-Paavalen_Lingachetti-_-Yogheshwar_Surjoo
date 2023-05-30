@@ -14,6 +14,16 @@ Source the setup.bash
 ```sh
 source devel/setup.bash             #This command works from the workspace
 ```
+Open src/Turtle_regulation_Paavalen_Lingachetti_Yogheshwar_Surjoo/src
+```sh
+cd src/Turtle_regulation_Paavalen_Lingachetti_Yogheshwar_Surjoo/src
+```
+
+Give execution right to set_way_point.py and service_client.py
+```sh
+chmod +x set_way_point.py
+chmod +x service_client.py
+```
 
 Open a terminal and type
 ```sh
