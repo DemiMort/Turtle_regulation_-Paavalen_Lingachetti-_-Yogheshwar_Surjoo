@@ -1,4 +1,5 @@
 <launch>
+    <node pkg="turtle_regulation_paavalen_lingachetti_yogheshwar_surjoo" name="Service_client" type="service_client.py" output="screen"/>
     <node pkg="turtle_regulation_paavalen_lingachetti_yogheshwar_surjoo" name="waypoint" type="set_way_point.py">
         <remap from="pose" to="turtle1/pose"/>
         <remap from="cmd_vel" to="turtle1/cmd_vel"/>
